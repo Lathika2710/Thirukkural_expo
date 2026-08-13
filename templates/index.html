@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Kural Aram | 1330 Kurals
+    </title>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="grain"></div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="nav">
+
+    <div class="brand-mark">
+        கு
+    </div>
+
+    <div>
+
+        <div class="brand-title">
+            குறள் அறம்
+        </div>
+
+        <div class="brand-subtitle">
+            1330 குறள்களில் ஒரு உலகம்
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================= -->
+
+    <section class="hero">
+
+
+        <div class="palm-line"></div>
+
+
+        <p class="eyebrow">
+            THE VOICE OF TAMIL WISDOM
+        </p>
+
+
+        <h1>
+
+            Discover the Wisdom of
+
+            <br>
+
+            <span>
+                Thiruvalluvar
+            </span>
+
+        </h1>
+
+
+        <p class="intro">
+
+            Explore 1330 timeless couplets that inspire
+            life, values, relationships and human excellence —
+            one Kural at a time.
+
+        </p>
+
+
+
+        <!-- =========================
+             SEARCH BOX
+        ========================= -->
+
+        <div class="search-shell">
+
+
+            <label for="kuralNumber">
+
+                Discover a Kural
+
+            </label>
+
+
+
+            <div class="search-row">
+
+
+                <input
+                    id="kuralNumber"
+                    type="number"
+                    min="1"
+                    max="1330"
+                    placeholder="Enter Kural Number"
+                    autocomplete="off"
+                >
+
+
+                <button
+                    id="searchBtn"
+                    class="primary-btn"
+                >
+
+                    Explore Kural
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="quick-row">
+
+
+                <button
+                    id="randomBtn"
+                    class="secondary-btn"
+                >
+
+                    🎲 Discover a Random Kural
+
+                </button>
+
+
+                <span>
+
+                    1 — 1330
+
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         STATISTICS
+    ========================= -->
+
+    <section class="stats">
+
+
+        <div class="stat-card">
+
+            <strong>
+                1330
+            </strong>
+
+            <span>
+                Timeless Kurals
+            </span>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <strong>
+                133
+            </strong>
+
+            <span>
+                Chapters
+            </span>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <strong>
+                3
+            </strong>
+
+            <span>
+                Paths of Wisdom
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         STATUS / LOADING
+    ========================= -->
+
+    <section
+        id="status"
+        class="status"
+        aria-live="polite"
+    >
+
+    </section>
+
+
+
+    <!-- =========================
+         RESULT CARD
+    ========================= -->
+
+    <section
+        id="result"
+        class="result-card hidden"
+    >
+
+
+        <div class="card-top">
+
+
+            <div>
+
+                <p class="card-label">
+
+                    Thirukkural
+
+                </p>
+
+
+                <h2 id="kuralNumberDisplay">
+
+                    Kural 1
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="seal">
+
+                அறம்
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             KURAL TEXT
+        ========================= -->
+
+        <div class="kural-area">
+
+
+            <div class="ornament">
+
+                ❧
+
+            </div>
+
+
+            <p
+                id="kuralText"
+                class="kural-text"
+            >
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             KURAL DETAILS
+        ========================= -->
+
+        <div class="details">
+
+
+            <article>
+
+
+                <span>
+
+                    Athigaram
+
+                </span>
+
+
+                <strong
+                    id="athigaram"
+                >
+
+                </strong>
+
+
+            </article>
+
+
+
+            <article>
+
+
+                <span>
+
+                    Athigaram Number
+
+                </span>
+
+
+                <strong
+                    id="athigaramNumber"
+                >
+
+                    —
+
+                </strong>
+
+
+            </article>
+
+
+
+            <article class="meaning">
+
+
+                <span>
+
+                    Meaning
+
+                </span>
+
+
+                <p
+                    id="porul"
+                >
+
+                </p>
+
+
+            </article>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             PREVIOUS / NEXT
+        ========================= -->
+
+        <div class="navigation">
+
+
+            <button
+                id="prevBtn"
+                class="nav-btn"
+            >
+
+                ← Previous Kural
+
+            </button>
+
+
+
+            <button
+                id="nextBtn"
+                class="nav-btn"
+            >
+
+                Next Kural →
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+    <span>
+
+        அறம் • பொருள் • இன்பம்
+
+    </span>
+
+
+    <span>
+
+        Kural Aram
+
+    </span>
+
+
+</footer>
+
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+
+</body>
+
+</html>
